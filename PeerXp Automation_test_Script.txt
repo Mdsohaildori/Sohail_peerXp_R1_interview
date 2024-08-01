@@ -1,0 +1,36 @@
+package Gen;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class Xp {
+public static void main(String[] args) throws InterruptedException {
+	System.setProperty("webdriver.chrome.driver","./softwares/chromedriver.exe");
+	WebDriver driver=new ChromeDriver();
+	driver.get("https://qa-test.ipxp.in/login");
+	Thread.sleep(2000);
+	driver.findElement(By.name("username")).sendKeys("admin@peerxp.com");
+	Thread.sleep(2000);
+	driver.findElement(By.name("password")).sendKeys("admin@peerxp.com");
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//span[.='Submit']")).click();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//span[.='New User']")).click();
+	Thread.sleep(2000);
+	driver.findElement(By.name("first_name")).sendKeys("ZZZZ");
+	driver.findElement(By.name("last_name")).sendKeys("AAAA");
+	driver.findElement(By.name("username")).sendKeys("Z@123");
+	driver.findElement(By.name("password")).sendKeys("123");
+	driver.findElement(By.name("confirm_password")).sendKeys("123");
+	WebElement drop = driver.findElement(By.className(" css-v3l153-control"));
+	Thread.sleep(2000);
+	Select s =new Select(drop);
+	s.selectByVisibleText("Member");
+	driver.findElement(By.xpath("//span[.='Save']")).click();
+	
+	
+}
+}
